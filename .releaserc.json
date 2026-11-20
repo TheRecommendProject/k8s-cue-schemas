@@ -23,7 +23,7 @@
     [
       "@semantic-release/exec",
       {
-        "verifyReleaseCmd": "cue mod publish --dryrun v${nextRelease.version}",
+        "verifyReleaseCmd": "cue mod publish --dry-run v${nextRelease.version}",
         "publishCmd": "cue mod publish v${nextRelease.version}"
       }
     ],
