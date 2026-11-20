@@ -65,7 +65,7 @@ jobs:
       - name: Set registry
         run: |
           owner="$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')"
-          echo "CUE_REGISTRY=ghcr.io/${owner}/k8s-  -schemas" >> "$GITHUB_ENV"
+          echo "CUE_REGISTRY=ghcr.io/${owner}/k8s-cue-schemas" >> "$GITHUB_ENV"
 
       - name: Release
         env:
