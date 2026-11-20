@@ -3,3 +3,10 @@ lockfile = true
 
 [tools]
 cue = "0.17.1"
+
+[tasks.verify]
+run = [
+  "cue fmt --check ./...",
+  "cue mod tidy --check",
+  "cue vet ./...",
+]

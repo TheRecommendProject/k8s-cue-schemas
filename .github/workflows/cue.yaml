@@ -20,22 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: cue-lang/setup-cue@v2.0.0
-        with:
-          version: ${{ env.CUE_VERSION }}
+      - uses: jdx/mise-action@v5
 
-      - name: Check formatting
-        run: cue fmt --check ./...
-
-      - name: Check module dependencies
-        run: cue mod tidy --check
-
-      - name: Validate schemas
-        run: cue vet ./...
+      - name: Verify cue files
+        run: mise run verify
 
   release:
     needs: verify
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    env:
+      MISE_ENV: release
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -47,13 +41,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: cue-lang/setup-cue@v1.0.1
-        with:
-          version: ${{ env.CUE_VERSION }}
-
-      - uses: actions/setup-node@v6
-        with:
-          node-version: lts/*
+      - uses: jdx/mise-action@v5
 
       - name: Log in to ghcr.io
         uses: docker/login-action@v4
@@ -72,7 +60,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
           npx --yes
-          -p semantic-release@${SEMANTIC_RELEASE_VERSION}
-          -p @semantic-release/exec@${SR_EXEC_VERSION}
-          -p conventional-changelog-conventionalcommits@${CC_PRESET_VERSION}
+          -p semantic-release
+          -p @semantic-release/exec
+          -p conventional-changelog-conventionalcommits
           semantic-release
