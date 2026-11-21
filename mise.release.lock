@@ -42,10 +42,10 @@ backend = "npm:@semantic-release/exec"
 specifiers = ["7.1.0"]
 
 [[tools."npm:conventional-changelog-conventionalcommits"]]
-version = "10.4.0"
-aube = { path = ".mise/locks/mise.release/npm-conventional-changelog-conventionalcommits/10.4.0", digest = "sha256:59c1783d7e30406d67f128f0155f9eed704bcc1fb3d07ba87cb3e2e6b9ed8396" }
+version = "10.4.1"
+aube = { path = ".mise/locks/mise.release/npm-conventional-changelog-conventionalcommits/10.4.1", digest = "sha256:0dfec6ef69b993cfc02da6b0d40d6f3a13824d3b8888823abd0e6e9bae3bf154" }
 backend = "npm:conventional-changelog-conventionalcommits"
-specifiers = ["10.4.0"]
+specifiers = ["10.4.1"]
 
 [[tools."npm:semantic-release"]]
 version = "26.0.1"
