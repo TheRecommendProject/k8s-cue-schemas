@@ -12,9 +12,9 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.1.0
 
-      - uses: jdx/mise-action@v5
+      - uses: jdx/mise-action@v5.2.10
 
       - name: Verify cue files
         run: mise run verify
@@ -31,14 +31,14 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.1.0
         with:
           fetch-depth: 0
 
-      - uses: jdx/mise-action@v5
+      - uses: jdx/mise-action@v5.2.10
 
       - name: Log in to ghcr.io
-        uses: docker/login-action@v4
+        uses: docker/login-action@v4.8.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
