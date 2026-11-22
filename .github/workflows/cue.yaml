@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
 
-      - uses: jdx/mise-action@v5.2.10
+      - uses: jdx/mise-action@v5.3.0
 
       - name: Verify cue files
         run: mise run verify
@@ -35,7 +35,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: jdx/mise-action@v5.2.10
+      - uses: jdx/mise-action@v5.3.0
 
       - name: Log in to ghcr.io
         uses: docker/login-action@v4.8.0
